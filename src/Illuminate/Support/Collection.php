@@ -505,6 +505,22 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
 	}
 
 	/**
+	 * Get the average of the given values.
+	 *
+	 * @param  \Closure  $callback
+	 * @param  string  $callback
+	 * @return mixed
+	 */
+	public function average($callback)
+	{
+		if ($this->isEmpty()) {
+			return null;
+		}
+
+		return $this->sum($callback) / $this->count();
+	}
+
+	/**
 	 * Take the first or last {$limit} items.
 	 *
 	 * @param  int  $limit
